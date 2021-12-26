@@ -1,0 +1,16 @@
+/*!
+ *  Created on: Nov 28, 2021
+ *      Author: ierturk
+ */
+
+@output_dir("../erpc_service/")
+program erpc_nucleo
+
+@group("uart")
+interface uart {
+    erpc_uart_SendData(in binary data, out bool status) -> void
+    erpc_uart_RecvData(out binary data, out bool status) -> void
+    erpc_uart_HeartBeat(out bool status) -> void
+
+    erpc_uart_RecvPushCount(out uint64 data, out bool status) -> void
+}
